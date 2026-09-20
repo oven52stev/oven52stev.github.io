@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="玛雅视觉官网提供专业的高端视觉设计服务，包括品牌全案设计、UI/UX设计、商业摄影及3D视觉制作。我们致力于通过创意视觉语言赋能企业品牌，提升市场竞争力。">
+    <meta name="keywords" content="玛雅视觉,品牌设计,UI设计,商业摄影,3D视觉,高端设计公司">
+    <title>玛雅视觉-高端品牌视觉设计与创意解决方案</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #d35400;
+            --bg-light: #f9f9f9;
+            --text-main: #333;
+            --text-secondary: #666;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--primary-color);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(211, 84, 0, 0.3);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--white);
+            color: var(--primary-color);
+            border: 2px solid var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* 服务板块 */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid #eee;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .icon-box {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px;
+            background-color: rgba(44, 62, 80, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 28px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* 案例展示 */
+        .portfolio {
+            background-color: var(--bg-light);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 300px);
+            gap: 15px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 62, 80, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+            color: var(--white);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .portfolio-overlay h4 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-overlay span {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* 为什么选择我们 */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .feature-image {
+            flex: 1;
+            min-width: 300px;
+            height: 500px;
+            background-color: #ddd;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .feature-content {
+            flex: 1;
+            min-width: 300px;
+            padding: 60px;
+        }
+
+        .feature-list {
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            margin-bottom: 30px;
+        }
+
+        .feature-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .feature-item p {
+            color: var(--text-secondary);
+        }
+
+        /* 合作流程 */
+        .process {
+            background-color: var(--bg-light);
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 50px;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #ddd;
+            z-index: 0;
+        }
+
+        .step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            flex: 1;
+            padding: 0 15px;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--white);
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .step:hover .step-number {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .step h4 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .step p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            margin-bottom: 20px;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .footer-contact li span {
+            margin-top: 3px;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+            }
+            .portfolio-item.large {
+                grid-column: span 2;
+                grid-row: span 1;
+                height: 250px;
+            }
+            .process-steps {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .process-steps::before {
+                width: 2px;
+                height: 100%;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .step {
+                display: flex;
+                align-items: center;
+                text-align: left;
+                gap: 20px;
+            }
+            .step-number {
+                margin: 0;
+                flex-shrink: 0;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .nav-links {
+                display: none; /* 移动端简化处理 */
+            }
+            .feature-content {
+                padding: 40px 20px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 头部导航 -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">玛雅<span>视觉</span></a>
+            <nav class="nav-links">
+                <a href="#services">设计服务</a>
+                <a href="#portfolio">设计案例</a>
+                <a href="#process">合作流程</a>
+                <a href="#about">关于我们</a>
+                <a href="#contact">联系我们</a>
+            </nav>
+            <a href="#contact" class="cta-button">开始合作</a>
+        </div>
+    </header>
+
+    <!-- Hero 区域 -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>用视觉语言<br>重塑品牌价值</h1>
+            <p>玛雅视觉专注于为高端企业提供品牌全案设计、UI/UX交互设计及商业视觉制作服务。我们不只是设计师，更是您品牌成长的战略合作伙伴。</p>
+            <div class="hero-btns">
+                <a href="#portfolio" class="btn btn-primary">浏览案例</a>
+                <a href="#services" class="btn btn-outline">了解服务</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务板块 -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>核心设计服务</h2>
+                <p>我们提供全方位的视觉解决方案，涵盖从策略到执行的每一个细节，确保品牌形象的一致性与专业度。</p>
+            </div>
+            <div class="services-grid">
+                <article class="service-card">
+                    <div class="icon-box">🎨</div>
+                    <h3>品牌全案设计</h3>
+                    <p>包括品牌定位、Logo设计、VI系统规范制定及品牌手册，打造具有辨识度的企业视觉资产。</p>
+                </article>
+                <article class="service-card">
+                    <div class="icon-box">📱</div>
+                    <h3>UI/UX 界面设计</h3>
+                    <p>为移动应用及Web平台提供用户体验优化的界面设计，注重交互逻辑与视觉美感的平衡。</p>
+                </article>
+                <article class="service-card">
+                    <div class="icon-box">📸</div>
+                    <h3>商业摄影与修图</h3>
+                    <p>提供高端产品拍摄、商业人像及空间摄影服务，配合专业后期修图，呈现极致质感。</p>
+                </article>
+                <article class="service-card">
+                    <div class="icon-box">✨</div>
+                    <h3>3D 视觉特效</h3>
+                    <p>运用C4D及三维动画技术，为广告、宣传片及网页提供震撼的视觉特效与动态演示。</p>
+                </article>
+                <article class="service-card">
+                    <div class="icon-box">🛍️</div>
+                    <h3>电商视觉设计</h3>
+                    <p>专注于淘宝、京东等电商平台的首页装修、详情页设计及营销海报制作，提升转化率。</p>
+                </article>
+                <article class="service-card">
+                    <div class="icon-box">🚀</div>
+                    <h3>新媒体视觉</h3>
+                    <p>针对社交媒体定制的视觉内容，包括公众号排版、短视频封面及动态图形设计。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 案例展示 -->
+    <section id="portfolio" class="section portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2>精选设计案例</h2>
+                <p>每一个项目都是一次对美的探索，我们坚持用作品说话，见证品牌在视觉升级后的蜕变。</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item large">
+                    <img src="https://picsum.photos/seed/arch/800/800.jpg" alt="高端建筑事务所品牌设计">
+                    <div class="portfolio-overlay">
+                        <h4>云端建筑事务所</h4>
+                        <span>品牌全案 / VI设计 / 办公空间导视</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/seed/tech/400/400.jpg" alt="金融科技APP设计">
+                    <div class="portfolio-overlay">
+                        <h4>智汇金融APP</h4>
+                        <span>UI设计 / 交互体验</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/seed/fashion/400/400.jpg" alt="时尚杂志封面设计">
+                    <div class="portfolio-overlay">
+                        <h4>Vogue 潮流周刊</h4>
+                        <span>杂志封面 / 视觉创意</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/seed/food/400/400.jpg" alt="有机食品包装设计">
+                    <div class="portfolio-overlay">
+                        <h4>原野有机食品</h4>
+                        <span>包装设计 / 品牌识别</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://picsum.photos/seed/car/400/400.jpg" alt="汽车展厅空间设计">
+                    <div class="portfolio-overlay">
+                        <h4>未来汽车展厅</h4>
+                        <span>空间设计 / 展陈规划</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 为什么选择我们 -->
+    <section id="about" class="section">
+        <div class="container features">
+            <div class="feature-image">
+                <img src="https://picsum.photos/seed/teamwork/600/800.jpg" alt="玛雅视觉设计团队协作">
+            </div>
+            <div class="feature-content">
+                <h2>为什么选择玛雅视觉？</h2>
+                <p>在瞬息万变的市场环境中，独特的视觉识别是品牌突围的关键。玛雅视觉拥有超过10年的设计行业经验，汇聚了来自顶尖设计院校及知名4A广告公司的资深创意人才。我们不仅仅是执行者，更是您商业战略的思考者。</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4>策略先行，创意落地</h4>
+                        <p>拒绝为了设计而设计。我们深入理解您的业务痛点，将品牌策略转化为具象的视觉语言，确保每一处设计都能服务于商业目标。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>全流程精细化服务</h4>
+                        <p>从创意构思、初稿绘制、设计修正到最终交付，我们提供全流程的精细化管理，确保项目按时、按质、按量完成。</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>跨领域专业团队</h4>
+                        <p>无论是平面、3D、动画还是交互，我们内部拥有完善的专业分工，能够满足一站式品牌视觉升级需求。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作流程 -->
+    <section id="process" class="section process">
+        <div class="container">
+            <div class="section-header">
+                <h2>标准合作流程</h2>
+                <p>透明高效的工作流程，确保合作顺畅，成果精准。</p>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>需求沟通与调研</h4>
+                    <p>深入了解项目背景、目标受众及核心诉求。</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>创意策略与提案</h4>
+                    <p>制定设计策略，提供多套创意方案供选择。</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>视觉设计与深化</h4>
+                    <p>根据选定方案进行深入设计，反复打磨细节。</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>定稿与交付</h4>
+                    <p>确认最终稿，提供源文件及使用规范手册。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>玛雅视觉</h3>
+                    <p>专注于为全球企业提供高品质的视觉设计服务，助力品牌在数字时代焕发新生。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>服务项目</h4>
+                    <ul>
+                        <li><a href="#">品牌全案设计</a></li>
+                        <li><a href="#">UI/UX 界面设计</a></li>
+                        <li><a href="#">商业摄影</a></li>
+                        <li><a href="#">3D 视觉特效</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">设计案例</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <span>📍</span>
+                            <span>北京市朝阳区创意产业园A座88号</span>
+                        </li>
+                        <li>
+                            <span>📧</span>
+                            <span>contact@mayanvision.com</span>
+                        </li>
+                        <li>
+                            <span>📞</span>
+                            <span>010-8888 6666</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 玛雅视觉设计有限公司 版权所有 | 京ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
