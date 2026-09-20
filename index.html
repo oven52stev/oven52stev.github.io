@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="9877小游戏地铁笨蛋提供海量精品网页游戏，包含休闲益智、动作冒险、模拟经营等多种类型，无需下载，即点即玩。">
+    <meta name="keywords" content="9877小游戏,地铁笨蛋,网页游戏,在线游戏,休闲游戏,益智游戏">
+    <title>9877小游戏地铁笨蛋-海量精品在线游戏平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #4facfe;
+            --secondary-color: #00f2fe;
+            --accent-color: #ff6b6b;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f4f6f9;
+            --bg-card: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .search-box {
+            display: flex;
+            background: white;
+            border-radius: 20px;
+            padding: 5px 15px;
+            align-items: center;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            width: 150px;
+            padding: 5px;
+            font-size: 14px;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #333, #666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--text-light);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .tag:hover {
+            transform: translateY(-2px);
+            color: var(--primary-color);
+        }
+
+        /* Game Grid */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 24px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .game-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-thumb {
+            width: 100%;
+            height: 140px;
+            background-color: #e0e0e0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .game-card:hover .card-thumb img {
+            transform: scale(1.1);
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .game-card:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .play-btn {
+            background: white;
+            color: var(--primary-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .card-info {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .category-badge {
+            background: #f0f7ff;
+            color: var(--primary-color);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 50px 0;
+            margin-bottom: 50px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .feature-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .feature-item p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">
+            9877小游戏
+            <span>地铁笨蛋</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">最新</a></li>
+                <li><a href="#">热门</a></li>
+                <li><a href="#">分类</a></li>
+            </ul>
+        </nav>
+        <div class="search-box">
+            <input type="text" placeholder="搜索游戏...">
+            <button>搜索</button>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>9877小游戏地铁笨蛋 - 精彩无限，即刻开战</h1>
+        <p>汇聚全网最热门的网页小游戏，无需下载，点击即玩。无论你是休闲解压，还是挑战高分，这里都有你的菜。</p>
+        <div class="hero-tags">
+            <span class="tag">休闲益智</span>
+            <span class="tag">动作冒险</span>
+            <span class="tag">模拟经营</span>
+            <span class="tag">赛车竞速</span>
+            <span class="tag">解谜闯关</span>
+        </div>
+    </section>
+
+    <!-- Featured Games -->
+    <section>
+        <div class="section-title">本周热门推荐</div>
+        <div class="game-grid">
+            <!-- Game Card 1 -->
+            <article class="game-card">
+                <div class="card-thumb">
+                    <img src="https://picsum.photos/seed/game1/300/200" alt="疯狂赛车手">
+                    <div class="play-overlay">
+                        <div class="play-btn">▶</div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">疯狂赛车手</h3>
+                    <div class="card-meta">
+                        <span class="category-badge">赛车</span>
+                        <span>1.2w 人玩</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Game Card 2 -->
+            <article class="game-card">
+                <div class="card-thumb">
+                    <img src="https://picsum.photos/seed/game2/300/200" alt="像素大冒险">
+                    <div class="play-overlay">
+                        <div class="play-btn">▶</div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">像素大冒险</h3>
+                    <div class="card-meta">
+                        <span class="category-badge">动作</span>
+                        <span>8.5k 人玩</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Game Card 3 -->
+            <article class="game-card">
+                <div class="card-thumb">
+                    <img src="https://picsum.photos/seed/game3/300/200" alt="糖果工厂">
+                    <div class="play-overlay">
+                        <div class="play-btn">▶</div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">糖果工厂</h3>
+                    <div class="card-meta">
+                        <span class="category-badge">益智</span>
+                        <span>2.1w 人玩</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Game Card 4 -->
+            <article class="game-card">
+                <div class="card-thumb">
+                    <img src="https://picsum.photos/seed/game4/300/200" alt="疯狂塔防">
+                    <div class="play-overlay">
+                        <div class="play-btn">▶</div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">疯狂塔防</h3>
+                    <div class="card-meta">
+                        <span class="category-badge">策略</span>
+                        <span>5.6k 人玩</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Game Card 5 -->
+            <article class="game-card">
+                <div class="card-thumb">
+                    <img src="https://picsum.photos/seed/game5/300/200" alt="恐龙快跑">
+                    <div class="play-overlay">
+                        <div class="play-btn">▶</div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">恐龙快跑</h3>
+                    <div class="card-meta">
+                        <span class="category-badge">跑酷</span>
+                        <span>3.3w 人玩</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Game Card 6 -->
+            <article class="game-card">
+                <div class="card-thumb">
+                    <img src="https://picsum.photos/seed/game6/300/200" alt="星际迷航">
+                    <div class="play-overlay">
+                        <div class="play-btn">▶</div>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">星际迷航</h3>
+                    <div class="card-meta">
+                        <span class="category-badge">射击</span>
+                        <span>9.2k 人玩</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="section-title">为什么选择 9877小游戏</div>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">⚡</div>
+                <h3>极速加载</h3>
+                <p>优化的游戏引擎，无需等待，秒开即玩，告别漫长加载。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <h3>全平台适配</h3>
+                <p>电脑、手机、平板随意切换，随时随地享受游戏乐趣。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <h3>绿色安全</h3>
+                <p>无广告弹窗，纯净无病毒，提供最放心的游戏环境。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section>
+        <div class="section-title">热门游戏分类</div>
+        <div class="game-grid">
+            <article class="game-card">
+                <div class="card-thumb">
+                    <img src="https://picsum.photos/seed/cat1/300/200" alt="解谜游戏">
+                    <div class="play-overlay"><div class="play-btn">▶</div></div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">解谜游戏</h3>
+                    <div class="card-meta"><span class="category-badge">分类</span><span>100+ 游戏</span></div>
+                </div>
+            </article>
+            <article class="game-card">
+                <div class="card-thumb">
+                    <img src="https://picsum.photos/seed/cat2/300/200" alt="射击游戏">
+                    <div class="play-overlay"><div class="play-btn">▶</div></div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">射击游戏</h3>
+                    <div class="card-meta"><span class="category-badge">分类</span><span>50+ 游戏</span></div>
+                </div>
+            </article>
+            <article class="game-card">
+                <div class="card-thumb">
+                    <img src="https://picsum.photos/seed/cat3/300/200" alt="棋牌游戏">
+                    <div class="play-overlay"><div class="play-btn">▶</div></div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">棋牌游戏</h3>
+                    <div class="card-meta"><span class="category-badge">分类</span><span>80+ 游戏</span></div>
+                </div>
+            </article>
+            <article class="game-card">
+                <div class="card-thumb">
+                    <img src="https://picsum.photos/seed/cat4/300/200" alt="体育游戏">
+                    <div class="play-overlay"><div class="play-btn">▶</div></div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">体育游戏</h3>
+                    <div class="card-meta"><span class="category-badge">分类</span><span>40+ 游戏</span></div>
+                </div>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于 9877小游戏</h4>
+                <p style="font-size: 14px; color: #bdc3c7; line-height: 1.8;">
+                    9877小游戏致力于为用户提供最优质的在线游戏体验。我们精选各类精品游戏，涵盖休闲、竞技、策略等多个领域，让玩家在碎片化时间中获得快乐。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">热门排行</a></li>
+                    <li><a href="#">最新更新</a></li>
+                    <li><a href="#">用户反馈</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>游戏分类</h4>
+                <ul>
+                    <li><a href="#">休闲益智</a></li>
+                    <li><a href="#">动作射击</a></li>
+                    <li><a href="#">模拟经营</a></li>
+                    <li><a href="#">赛车竞速</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li><a href="#">商务合作</a></li>
+                    <li><a href="#">侵权投诉</a></li>
+                    <li><a href="#">玩家交流群</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 9877小游戏. All Rights Reserved. 仅供演示使用，非官方网站。</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
