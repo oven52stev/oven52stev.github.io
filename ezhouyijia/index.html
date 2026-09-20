@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="鄂州一家人致力于记录鄂州本地生活、家庭故事与社区动态。分享鄂州人的喜怒哀乐，展现鄂州老街、美食、旅游及家庭生活指南，是鄂州本地生活服务与情感交流平台。">
+    <meta name="keywords" content="鄂州一家人,鄂州生活,鄂州美食,鄂州旅游,鄂州社区,鄂州家庭">
+    <title>鄂州一家人-鄂州本地生活故事、美食旅游与家庭社区指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d35400;
+            --secondary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            padding: 60px 0;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Main Content Grid */
+        .main-content {
+            padding: 40px 0;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .section-header h2 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .view-all {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            flex: 1;
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: #999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+            color: var(--secondary-color);
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .rank-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .rank-list li:nth-child(1) .rank-num { background: #e74c3c; }
+        .rank-list li:nth-child(2) .rank-num { background: #f39c12; }
+        .rank-list li:nth-child(3) .rank-num { background: #27ae60; }
+
+        .rank-info h4 {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .rank-info span {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* About Section */
+        .about-section {
+            background: var(--secondary-color);
+            color: white;
+            padding: 50px 0;
+            margin-top: 40px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 40px;
+        }
+
+        .stat-item h4 {
+            font-size: 2rem;
+            color: var(--accent-color);
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: #aaa;
+            padding: 40px 0 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                padding: 0 15px;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 20px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-stats {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">
+            <span>鄂州一家人</span>
+        </a>
+        <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">本地生活</a></li>
+                <li><a href="#">美食探店</a></li>
+                <li><a href="#">旅游攻略</a></li>
+                <li><a href="#">社区互助</a></li>
+                <li><a href="#">关于我们</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container">
+            <h1>记录鄂州烟火，温暖你我生活</h1>
+            <p>这里是鄂州一家人，汇聚鄂州本地热点、家庭故事、社区互助与便民指南。无论您是土生土长的鄂州人，还是新搬来的朋友，这里都有您需要的温暖与资讯。</p>
+        </div>
+    </section>
+
+    <div class="container main-content">
+        <!-- Left Column: Featured Content -->
+        <div class="content-area">
+            
+            <section class="section-header">
+                <h2>热门推荐</h2>
+                <a href="#" class="view-all">查看更多 &rarr;</a>
+            </section>
+
+            <div class="card-grid">
+                <article class="card">
+                    <img src="https://picsum.photos/seed/ezhou1/400/250" alt="鄂州梁子湖美食" class="card-img">
+                    <div class="card-body">
+                        <span class="card-tag">美食探店</span>
+                        <h3 class="card-title">梁子湖大闸蟹上市了！鄂州本地人都在哪里买？</h3>
+                        <p class="card-desc">又是一年蟹黄肥，鄂州作为梁子湖的所在地，今年大闸蟹的品质备受关注。本文为您整理了本地口碑最佳的购买渠道和烹饪技巧。</p>
+                        <div class="card-meta">
+                            <span>2023-10-15</span>
+                            <span>阅读 1.2k</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://picsum.photos/seed/ezhou2/400/250" alt="鄂州社区活动" class="card-img">
+                    <div class="card-body">
+                        <span class="card-tag">社区活动</span>
+                        <h3 class="card-title">西山公园秋季徒步活动：寻找鄂州最美的红叶</h3>
+                        <p class="card-desc">本周六，鄂州一家人社区发起了秋季徒步活动，大家齐聚西山，在登高望远的同时，分享生活中的点滴感悟，活动圆满结束。</p>
+                        <div class="card-meta">
+                            <span>2023-10-12</span>
+                            <span>评论 86</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://picsum.photos/seed/ezhou3/400/250" alt="鄂州民生政策" class="card-img">
+                    <div class="card-body">
+                        <span class="card-tag">民生资讯</span>
+                        <h3 class="card-title">鄂州市最新交通优化方案公布，涉及这几条主干道</h3>
+                        <p class="card-desc">为了缓解早晚高峰拥堵，鄂州市交警部门近期对部分路口进行了重新设计。作为鄂州一家人，我们为您解读新方案对市民出行的实际影响。</p>
+                        <div class="card-meta">
+                            <span>2023-10-10</span>
+                            <span>阅读 3.5k</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://picsum.photos/seed/ezhou4/400/250" alt="家庭生活" class="card-img">
+                    <div class="card-body">
+                        <span class="card-tag">家庭生活</span>
+                        <h3 class="card-title">周末带娃去哪玩？鄂州这5个亲子乐园推荐</h3>
+                        <p class="card-desc">周末不想宅在家？为您推荐鄂州本地适合带小朋友去的户外场所，包括湿地公园、科普馆以及免费的滨江公园，轻松度过周末。</p>
+                        <div class="card-meta">
+                            <span>2023-10-08</span>
+                            <span>阅读 890</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <section class="section-header" style="margin-top: 40px;">
+                <h2>最新动态</h2>
+                <a href="#" class="view-all">查看更多 &rarr;</a>
+            </section>
+
+            <div class="card-grid">
+                <article class="card">
+                    <div class="card-body">
+                        <span class="card-tag">房产资讯</span>
+                        <h3 class="card-title">鄂州近期二手房市场分析：刚需购房者需注意什么？</h3>
+                        <p class="card-desc">随着政策调整，鄂州楼市出现回暖迹象。对于想要在鄂州安家的家庭来说，现在是入手的好时机吗？专家为您分析。</p>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-body">
+                        <span class="card-tag">教育</span>
+                        <h3 class="card-title">鄂州市中小学课后服务时间延长，家长如何安排？</h3>
+                        <p class="card-desc">新学期开始，鄂州市教育局推出了新的课后延时服务政策，旨在解决双职工家庭的后顾之忧。</p>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-body">
+                        <span class="card-tag">健康</span>
+                        <h3 class="card-title">流感高发季，鄂州家庭如何科学备药与预防？</h3>
+                        <p class="card-desc">医生建议：家庭药箱中应常备退烧药、感冒药及抗原试剂，并注意家庭通风与个人卫生。</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- Right Column: Sidebar -->
+        <aside>
+            <div class="sidebar-widget">
+                <h3 class="widget-title">社区公告</h3>
+                <div style="font-size: 0.9rem; color: #666;">
+                    <p style="margin-bottom: 10px;"><strong>📢 活动通知：</strong><br>鄂州一家人摄影大赛正在进行中，欢迎投稿！</p>
+                    <p><strong>📅 社区会议：</strong><br>每月10号晚上8点，线上讨论社区治理问题。</p>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">热门话题</h3>
+                <div class="rank-list">
+                    <li>
+                        <div class="rank-num">1</div>
+                        <div class="rank-info">
+                            <h4>鄂州万达广场新店开业</h4>
+                            <span>1.5w 热度</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="rank-num">2</div>
+                        <div class="rank-info">
+                            <h4>葛店开发区发展前景</h4>
+                            <span>9800 热度</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="rank-num">3</div>
+                        <div class="rank-info">
+                            <h4>江滩公园夜跑打卡地</h4>
+                            <span>7500 热度</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="rank-num">4</div>
+                        <div class="rank-info">
+                            <h4>鄂州方言趣谈</h4>
+                            <span>5200 热度</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="rank-num">5</div>
+                        <div class="rank-info">
+                            <h4>老城区改造计划</h4>
+                            <span>4100 热度</span>
+                        </div>
+                    </li>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">便民服务</h3>
+                <ul style="font-size: 0.9rem; line-height: 2;">
+                    <li><a href="#">鄂州公交实时查询</a></li>
+                    <li><a href="#">鄂州市医院挂号指南</a></li>
+                    <li><a href="#">公积金提取流程</a></li>
+                    <li><a href="#">本地社保缴费入口</a></li>
+                    <li><a href="#">鄂州天气实时播报</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <section class="about-section">
+        <div class="container about-content">
+            <div class="about-text">
+                <h3>关于鄂州一家人</h3>
+                <p>鄂州一家人是一个专注于服务鄂州本地市民的综合性生活服务平台。我们致力于通过互联网技术，连接鄂州的家庭与社区，传递本地正能量，分享实用生活资讯，解决市民日常生活中的实际困难。</p>
+                <p>我们的愿景是让每一个在鄂州奋斗的人都能感受到家的温暖，让本地信息传递更加高效、透明。无论是寻找美食、了解政策，还是参与社区互助，鄂州一家人都是您值得信赖的伙伴。</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-item">
+                    <h4>5+</h4>
+                    <p>年运营经验</p>
+                </div>
+                <div class="stat-item">
+                    <h4>50w+</h4>
+                    <p>本地粉丝</p>
+                </div>
+                <div class="stat-item">
+                    <h4>1000+</h4>
+                    <p>合作商家</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>鄂州一家人</h4>
+                <p style="opacity: 0.7; font-size: 0.85rem;">记录鄂州烟火，温暖你我生活。做最懂鄂州人的本地服务平台。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">网站首页</a></li>
+                    <li><a href="#">本地新闻</a></li>
+                    <li><a href="#">美食推荐</a></li>
+                    <li><a href="#">商家入驻</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li><a href="#">投稿爆料</a></li>
+                    <li><a href="#">商务合作</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                    <li><a href="#">加入我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li><a href="#">微信公众号</a></li>
+                    <li><a href="#">新浪微博</a></li>
+                    <li><a href="#">抖音账号</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 鄂州一家人 版权所有 | 仅供展示用途</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById('nav-menu');
+        menu.classList.toggle('show');
+    }
+</script>
+
+</body>
+              </html>
